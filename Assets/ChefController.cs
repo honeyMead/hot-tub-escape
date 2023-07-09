@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class ChefController : MonoBehaviour
@@ -67,19 +66,19 @@ public class ChefController : MonoBehaviour
         if (transform.position.y < startPosition.y)
         {
             rigid.gravityScale = 0;
-            transform.position = new Vector2(transform.position.x, startPosition.y);
+            transform.position = new Vector3(transform.position.x, startPosition.y, -1);
         }
     }
 
     private void OnlyComeCloserWhenPlayerIsStopped()
     {
-        if (player.rigid.velocity.x <= player.speed / 4f)
+        if (player.rigid.velocity.x <= player.speed / 5f)
         {
             playerDistanceX = player.transform.position.x - transform.position.x;
             MoveRight();
         }
         var x = player.transform.position.x - playerDistanceX;
-        transform.position = new Vector2(x, transform.position.y);
+        transform.position = new Vector3(x, transform.position.y, -1);
     }
 
     private void MoveRight()

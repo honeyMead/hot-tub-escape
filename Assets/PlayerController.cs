@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight;
     public Camera mainCamera;
     public GameObject ground;
+    public GameObject obstacleCreator;
 
     public Rigidbody2D rigid { get; private set; }
 
@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         MoveRight();
         MoveCamera();
+        MoveObstacleCreator();
         MoveGround();
     }
 
@@ -60,6 +61,12 @@ public class PlayerController : MonoBehaviour
     {
         var cameraPos = mainCamera.transform.position;
         mainCamera.transform.position = new Vector3(transform.position.x + camDistanceX, cameraPos.y, cameraPos.z);
+    }
+
+    private void MoveObstacleCreator()
+    {
+        var cameraPos = mainCamera.transform.position;
+        obstacleCreator.transform.position = new Vector2(cameraPos.x, obstacleCreator.transform.position.y);
     }
 
     private void MoveGround()

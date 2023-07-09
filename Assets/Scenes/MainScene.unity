@@ -1095,7 +1095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea4c1a4524c42741baf8eac1cbdec21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 5
   jumpHeight: 15
   mainCamera: {fileID: 519420031}
   ground: {fileID: 1261548170}

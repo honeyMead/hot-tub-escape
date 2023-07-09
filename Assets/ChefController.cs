@@ -4,6 +4,7 @@ public class ChefController : MonoBehaviour
 {
     public PlayerController player;
     public Collider2D groundCollider;
+    public Transform endScreen;
 
     private Rigidbody2D rigid;
     private Collider2D collider2d;
@@ -15,6 +16,7 @@ public class ChefController : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
         rigid = GetComponent<Rigidbody2D>();
         collider2d = GetComponent<Collider2D>();
         startPosition = transform.position;
@@ -39,8 +41,9 @@ public class ChefController : MonoBehaviour
 
         if (hasHitPlayer)
         {
-            // TODO game over
+            endScreen.gameObject.SetActive(true);
             Debug.Log("Game Over");
+            Time.timeScale = 0f;
         }
     }
 

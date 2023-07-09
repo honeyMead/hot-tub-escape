@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public Camera mainCamera;
     public GameObject ground;
     public GameObject obstacleCreator;
+
+    public Text bestTime;
 
     public Rigidbody2D rigid { get; private set; }
 
@@ -50,6 +54,18 @@ public class PlayerController : MonoBehaviour
         MoveCamera();
         MoveObstacleCreator();
         MoveGround();
+        ShowBestTime();
+    }
+
+    private void ShowBestTime()
+    {
+        var time = Mathf.Floor(Time.timeSinceLevelLoad * 10f) / 10f;
+        bestTime.text = "Best time: " + time + "s";
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
     }
 
     private IEnumerator IncreaseSpeed(float waitTime)

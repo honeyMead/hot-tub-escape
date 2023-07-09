@@ -13,6 +13,26 @@ public class ChefController : MonoBehaviour
     private bool isGrounded = true;
     private Vector2 startPosition;
     private float playerDistanceX;
+    private static GameObject permanentAudio = null;
+
+    void Awake()
+    {
+        var audios = GameObject.FindGameObjectsWithTag("Audio");
+
+        foreach (var audio in audios)
+        {
+            if (permanentAudio == null)
+            {
+                permanentAudio = audio;
+                DontDestroyOnLoad(permanentAudio);
+                return;
+            }
+            else if (audio != permanentAudio)
+            {
+                Destroy(audio);
+            }
+        }
+    }
 
     void Start()
     {

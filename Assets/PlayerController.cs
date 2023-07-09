@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,16 +22,26 @@ public class PlayerController : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         collider2d = GetComponent<Collider2D>();
         camDistanceX = mainCamera.transform.position.x - transform.position.x;
+        StartCoroutine(IncreaseSpeed(5f));
     }
 
     void Update()
     {
         CheckIfGrounded();
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
+        if (!isGrounded && !Input.GetKey(KeyCode.UpArrow))
+        {
+            FallFaster();
+        }
+        if (isGrounded && Input.GetKeyDown(KeyCode.UpArrow))
         {
             Jump();
         }
+    }
+
+    private void FallFaster()
+    {
+        rigid.AddForce(Vector2.down * 15f, ForceMode2D.Force);
     }
 
     void FixedUpdate()
@@ -38,6 +50,15 @@ public class PlayerController : MonoBehaviour
         MoveCamera();
         MoveObstacleCreator();
         MoveGround();
+    }
+
+    private IEnumerator IncreaseSpeed(float waitTime)
+    {
+        while (speed < 100f)
+        {
+            yield return new WaitForSeconds(waitTime);
+            speed += 0.5f;
+        }
     }
 
     private void CheckIfGrounded()

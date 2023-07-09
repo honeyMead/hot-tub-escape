@@ -72,7 +72,7 @@ public class ChefController : MonoBehaviour
 
     private void OnlyComeCloserWhenPlayerIsStopped()
     {
-        if (player.rigid.velocity.x <= player.speed / 5f)
+        if (player.rigid.velocity.x <= player.speed / 100f)
         {
             playerDistanceX = player.transform.position.x - transform.position.x;
             MoveRight();

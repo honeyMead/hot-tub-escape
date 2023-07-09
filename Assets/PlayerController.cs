@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         {
             FallFaster();
         }
-        if (isGrounded && Input.GetKeyDown(KeyCode.UpArrow))
+        if (isGrounded && Input.GetKey(KeyCode.UpArrow))
         {
             Jump();
         }

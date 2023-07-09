@@ -5,11 +5,14 @@ public class ObstacleCreator : MonoBehaviour
 {
     public GameObject potPrefab;
     public GameObject knifePrefab;
+    public GameObject shelfPrefab;
     public Camera mainCamera;
     public Vector2 lastObstaclePosition;
     public GameObject[] spawnPoints;
 
     private float generationX;
+    private int i = 0;
+    private bool canGenerateShelf = false;
 
     void Start()
     {
@@ -37,7 +40,27 @@ public class ObstacleCreator : MonoBehaviour
         if (obstaclePositionOnScreen.x <= generationX)
         {
             CreateObstacle();
+            if (!canGenerateShelf)
+            {
+                i++;
+            }
+            if (i % 3 == 0)
+            {
+                canGenerateShelf = true;
+            }
         }
+        if (canGenerateShelf)
+        {
+            CreateShelf();
+        }
+    }
+
+    private void CreateShelf()
+    {
+        var shelfSpawnPoint = spawnPoints[2];
+        var spawnPoint = shelfSpawnPoint.transform.position;
+        Instantiate(shelfPrefab, spawnPoint, Quaternion.identity);
+        canGenerateShelf = false;
     }
 
     private void CreateObstacle()

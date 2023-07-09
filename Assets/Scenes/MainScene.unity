@@ -250,6 +250,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 587969258}
+  - {fileID: 1594262951}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -266,10 +267,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potPrefab: {fileID: 7305475164955019672, guid: 31c244e556f50264189a9c12eafd29f1, type: 3}
+  knifePrefab: {fileID: 6857596101556290001, guid: fc763f6251dd3f24e822ec64de924c40, type: 3}
   mainCamera: {fileID: 519420031}
   lastObstaclePosition: {x: 0, y: 0}
   spawnPoints:
   - {fileID: 587969257}
+  - {fileID: 1594262950}
 --- !u!1 &307790767
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,6 +950,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393474487}
   m_CullTransparentMesh: 1
+--- !u!1 &1594262950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1594262951}
+  m_Layer: 0
+  m_Name: KnifeSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1594262951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594262950}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.58, y: -3.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 72009766}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1648361411
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,8 +1148,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06633759, y: -0.004932396}
-  m_Size: {x: 2.133184, y: 1.7201822}
+  m_Offset: {x: -0.06633761, y: -0.10697115}
+  m_Size: {x: 2.1331842, y: 1.5161076}
   m_Direction: 1
 --- !u!1 &1896045420
 GameObject:
@@ -1438,7 +1472,7 @@ GameObject:
   - component: {fileID: 2146159350}
   m_Layer: 5
   m_Name: EndScreen
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1482,7 +1516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7305475164955019679, guid: 31c244e556f50264189a9c12eafd29f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.42
+      value: 20.72
       objectReference: {fileID: 0}
     - target: {fileID: 7305475164955019679, guid: 31c244e556f50264189a9c12eafd29f1, type: 3}
       propertyPath: m_LocalPosition.y
